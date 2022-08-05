@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/jppang/OneDrive/程式語言/ESP32_X-Track/software/arduino-platformio-vscode'
+make: Leaving directory `/Users/jppang/OneDrive/程式語言/ESP32_X-Track/software/arduino-platformio-vscode'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
