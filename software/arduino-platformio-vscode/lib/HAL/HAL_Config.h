@@ -48,7 +48,7 @@
 #define CONFIG_SCREEN_SPI           VSPI
 
 #define CONFIG_SCREEN_HOR_RES       240
-#define CONFIG_SCREEN_VER_RES       280
+#define CONFIG_SCREEN_VER_RES       240
 #define CONFIG_SCREEN_SPI_FREQ      40*1000*1000
 
 /* Battery */
@@ -105,7 +105,7 @@
 #define CONFIG_SHOW_HEAP_INFO       0
 
 /* Use Watch Dog */
-#define CONFIG_WATCH_DOG_ENABLE     1
+#define CONFIG_WATCH_DOG_ENABLE     0
 #if CONFIG_WATCH_DOG_ENABLE
 #  define CONFIG_WATCH_DOG_TIMEOUT (10 * 1000) // [ms]
 #endif

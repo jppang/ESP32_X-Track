@@ -40,13 +40,12 @@ static float Display_GetFPS(uint32_t loopNum)
 }
 #endif
 
-static void Display_SPI_Send(const uint16_t* buf, uint32_t size)
+static void Display_SPI_Send(const uint16_t * buf, uint32_t size)
 {
     screen.startWrite();
-    screen.setSwapBytes(false);
     if(DISP_USE_DMA) {
         screen.dmaWait();
-        screen.pushPixelsDMA((uint16_t*)buf, size);
+        screen.pushPixelsDMA((uint16_t * )buf, size);
     } else {
         screen.pushPixels(buf, size);
     }
@@ -62,6 +61,7 @@ void HAL::Display_Init()
 {
     Serial.print("Display: init...");
     screen.init();
+    if(DISP_USE_DMA) Display_SPI_DMA_Init();
     screen.setRotation(0);
     screen.fillScreen(TFT_BLACK);
 
@@ -71,13 +71,11 @@ void HAL::Display_Init()
     screen.setTextFont(0);
     screen.setTextColor(TFT_WHITE, TFT_BLUE);
 
-    if(DISP_USE_DMA) Display_SPI_DMA_Init();
-
 #if(DISP_USE_FPS_TEST == 1) 
     Display_GetFPS(50);
 #endif
 
- //   HAL::Backlight_SetGradual(1000, 1000);
+    HAL::Backlight_SetGradual(1000, 1000);
     Serial.println("success");
 }
 
@@ -102,9 +100,9 @@ void HAL::Display_DumpCrashInfo(const char* info)
     screen.print("Press KEY to reboot..");
 }
 
-void HAL::Display_SetAddrWindow(int16_t x0, int16_t y0, int16_t x1, int16_t y1)
+void HAL::Display_SetAddrWindow(int16_t x0, int16_t y0, int16_t w, int16_t h)
 {
-    screen.setAddrWindow(x0, y0, x1, y1);
+    screen.setAddrWindow(x0, y0, w, h);
 }
 
 void HAL::Display_SendPixels(const uint16_t* pixels, uint32_t len)
