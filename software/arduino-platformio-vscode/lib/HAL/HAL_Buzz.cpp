@@ -32,10 +32,13 @@ void HAL::Buzz_Tone(uint32_t freq, int32_t duration)
         //tone(CONFIG_BUZZ_PIN, freq, duration);
         ledcWriteTone(BUZZ_CHANNEL, freq);
         vTaskDelay(duration / portTICK_PERIOD_MS);
+        ledcWriteTone(BUZZ_CHANNEL, 0);
     }
     else
     {
         //tone(CONFIG_BUZZ_PIN, freq);
         ledcWriteTone(BUZZ_CHANNEL, freq);
+        vTaskDelay(20 / portTICK_PERIOD_MS);
+        ledcWriteTone(BUZZ_CHANNEL, 0);
     }
 }
