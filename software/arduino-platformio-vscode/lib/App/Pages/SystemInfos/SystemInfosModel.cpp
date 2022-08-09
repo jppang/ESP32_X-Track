@@ -116,7 +116,7 @@ void SystemInfosModel::GetRTCInfo(
         dateTime,
         len,
         "%d-%d-%d\n%02d:%02d:%02d",
-        clock.year,
+        (clock.year + 1900),
         clock.month,
         clock.day,
         clock.hour,

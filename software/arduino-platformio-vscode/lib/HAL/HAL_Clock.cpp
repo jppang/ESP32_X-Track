@@ -1,6 +1,6 @@
 #include "HAL.h"
-#include "rtc.h"
 #include "time.h"
+#include "sys/time.h"
 
 void HAL::Clock_Init()
 {
@@ -8,6 +8,7 @@ void HAL::Clock_Init()
     Clock_GetInfo(&info);
     time_t now = time(NULL);
     struct tm* calendar = localtime(&now);
+    setenv("TZ", "CST-8", 1);
     Serial.print(calendar, "%Y/%m/%d %H:%M:%S ");
     Serial.println(Clock_GetWeekString(calendar->tm_wday));
 }
@@ -16,8 +17,6 @@ void HAL::Clock_GetInfo(Clock_Info_t* info)
 {
     time_t now = time(NULL);
     struct tm* calendar = localtime(&now);
-//    Serial.print(calendar, "%Y/%m/%d %H:%M:%S ");
-//    Serial.println(Clock_GetWeekString(calendar->tm_wday));
     info->year = calendar->tm_year;
     info->month = calendar->tm_mon;
     info->day = calendar->tm_mday;
@@ -25,13 +24,17 @@ void HAL::Clock_GetInfo(Clock_Info_t* info)
     info->hour = calendar->tm_hour;
     info->minute = calendar->tm_min;
     info->second = calendar->tm_sec;
-    info->millisecond = 0;
+    info->millisecond = millis();
 }
 
 void HAL::Clock_SetInfo(const Clock_Info_t* info)
 {
-    struct tm now = {info->second, info->minute, info->hour, info->day, info->month, info->year};
-    mktime(&now);
+    time_t now = time(NULL);
+    struct tm today = {info->second, info->minute, info->hour, info->day, info->month, (info->year - 1900)};
+    now = mktime(&today);
+    struct timeval tv = { .tv_sec = now };
+    struct timezone tz = { .tz_minuteswest = 8*60 };
+    settimeofday(&tv, &tz);
 }
 
 const char* HAL::Clock_GetWeekString(uint8_t week)
