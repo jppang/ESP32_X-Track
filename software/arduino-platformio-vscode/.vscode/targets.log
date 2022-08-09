@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Sat Aug  6 20:22:16 2022
+# Make data base, printed on Mon Aug  8 11:03:08 2022
 
 # Variables
 
@@ -40,11 +40,13 @@ VSCODE_CWD = /
 # environment
 NO_PROXY = 127.0.0.1
 # environment
+LaunchInstanceID = 34047664-FAB2-41C5-84BD-C2404869E6FC
+# environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.bpo27zkXhH/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.9Pig3z1AXj/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -62,7 +64,7 @@ VSCODE_CODE_CACHE_PATH = /Users/jppang/Library/Application Support/Code/CachedDa
 # environment
 LOGNAME = jppang
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -123,6 +125,8 @@ MAKEFILES :=
 PLATFORMIO_CALLER = vscode
 # environment
 LC_ALL = C
+# environment
+SECURITYSESSIONID = 186a6
 # automatic
 ^F = $(notdir $^)
 # default
@@ -134,9 +138,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 5220
+VSCODE_PID = 463
 # variable set hash-table stats:
-# Load=62/1024=6%, Rehash=0, Collisions=3/83=4%
+# Load=64/1024=6%, Rehash=0, Collisions=3/85=4%
 
 # Pattern-specific Variable Values
 
@@ -218,7 +222,7 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Sat Aug  6 20:22:16 2022
+# Finished Make data base on Mon Aug  8 11:03:08 2022
 
  
 make: *** No rule to make target `all'.  Stop.

@@ -146,7 +146,8 @@ void HAL::Power_SetAutoLowPowerEnable(bool en)
 
 void HAL::Power_Shutdown()
 {
-    CM_EXECUTE_ONCE(Power.ShutdownReq = true);
+    //CM_EXECUTE_ONCE(Power.ShutdownReq = true);
+    ESP.deepSleep(0);
 }
 
 void HAL::Power_Update()
