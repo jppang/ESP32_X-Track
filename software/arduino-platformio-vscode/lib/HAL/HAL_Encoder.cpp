@@ -1,12 +1,12 @@
 #include "HAL.h"
 #include "ButtonEvent/ButtonEvent.h"
+#include "RotaryEncoder.h"
 
 static ButtonEvent EncoderPush(CONFIG_POWER_SHUTDOWM_DELAY);
-
+static RotaryEncoder encoder = RotaryEncoder(CONFIG_ENCODER_A_PIN, CONFIG_ENCODER_B_PIN, RotaryEncoder::LatchMode::TWO03);
 static bool EncoderEnable = true;
 static volatile int32_t EncoderDiff = 0;
 static bool EncoderDiffDisable = false;
-static volatile uint32_t lastRotateTime = millis();
 portMUX_TYPE emux = portMUX_INITIALIZER_UNLOCKED;
 portMUX_TYPE pmux = portMUX_INITIALIZER_UNLOCKED;
 
@@ -14,6 +14,7 @@ static void Buzz_Handler(int dir)
 {
     static const uint16_t freqStart = 2000;
     static volatile uint16_t freq = freqStart;
+    static uint32_t lastRotateTime;
     portENTER_CRITICAL(&emux);
 
     if(millis() - lastRotateTime > 1000)
@@ -47,9 +48,9 @@ static void IRAM_ATTR Encoder_EventHandler()
     {
         return;
     }
-    int dir = (digitalRead(CONFIG_ENCODER_B_PIN) == LOW ? -1 : +1);
-    EncoderDiff += dir;
-    Buzz_Handler(dir);
+    encoder.tick();
+    EncoderDiff = encoder.getPosition();
+    Buzz_Handler((int) encoder.getDirection());
     portEXIT_CRITICAL(&emux);
 }
 
@@ -74,13 +75,10 @@ static void IRAM_ATTR Encoder_PushHandler(ButtonEvent* btn, int event)
 
 void HAL::Encoder_Init()
 {
-    //Serial.print("RotaryEncoder init ... ");
-    pinMode(CONFIG_ENCODER_A_PIN, INPUT_PULLUP);
-    pinMode(CONFIG_ENCODER_B_PIN, INPUT_PULLUP);
     pinMode(CONFIG_ENCODER_PUSH_PIN, INPUT_PULLUP);
-    attachInterrupt(CONFIG_ENCODER_A_PIN, Encoder_EventHandler, FALLING);
+    attachInterrupt(CONFIG_ENCODER_A_PIN, Encoder_EventHandler, CHANGE);
+    attachInterrupt(CONFIG_ENCODER_B_PIN, Encoder_EventHandler, CHANGE);
     EncoderPush.EventAttach(Encoder_PushHandler);
-    //Serial.println("success.");
 }
 
 void HAL::Encoder_Update()

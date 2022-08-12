@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Mon Aug  8 11:03:08 2022
+# Make data base, printed on Fri Aug 12 06:42:29 2022
 
 # Variables
 
@@ -17,8 +17,6 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 ?F = $(notdir $?)
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# environment
-PLATFORMIO_IDE = 2.5.1
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
@@ -28,7 +26,7 @@ CURDIR := /Users/jppang/OneDrive/程式語言/ESP32_X-Track/software/arduino-pla
 # makefile
 SHELL = /bin/sh
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-tw","availableLanguages":{"*":"zh-tw"},"_languagePackId":"781b7ebe22283cc49ae0f6b2a60a7843.zh-tw","_translationsConfigFile":"/Users/jppang/Library/Application Support/Code/clp/781b7ebe22283cc49ae0f6b2a60a7843.zh-tw/tcf.json","_cacheRoot":"/Users/jppang/Library/Application Support/Code/clp/781b7ebe22283cc49ae0f6b2a60a7843.zh-tw","_resolvedLanguagePackCoreLocation":"/Users/jppang/Library/Application Support/Code/clp/781b7ebe22283cc49ae0f6b2a60a7843.zh-tw/da76f93349a72022ca4670c1b84860304616aaa2","_corruptedFile":"/Users/jppang/Library/Application Support/Code/clp/781b7ebe22283cc49ae0f6b2a60a7843.zh-tw/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"zh-tw","availableLanguages":{"*":"zh-tw"},"_languagePackId":"03519bb7194c1df1d1f37b998a097db3.zh-tw","_translationsConfigFile":"/Users/jppang/Library/Application Support/Code/clp/03519bb7194c1df1d1f37b998a097db3.zh-tw/tcf.json","_cacheRoot":"/Users/jppang/Library/Application Support/Code/clp/03519bb7194c1df1d1f37b998a097db3.zh-tw","_resolvedLanguagePackCoreLocation":"/Users/jppang/Library/Application Support/Code/clp/03519bb7194c1df1d1f37b998a097db3.zh-tw/6d9b74a70ca9c7733b29f0456fd8195364076dda","_corruptedFile":"/Users/jppang/Library/Application Support/Code/clp/03519bb7194c1df1d1f37b998a097db3.zh-tw/corrupted.info","_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
 # makefile
@@ -38,15 +36,13 @@ __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 VSCODE_CWD = /
 # environment
-NO_PROXY = 127.0.0.1
-# environment
-LaunchInstanceID = 34047664-FAB2-41C5-84BD-C2404869E6FC
+PATH = /usr/local/opt/openjdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.9Pig3z1AXj/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.XRebZ9gK1x/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -60,27 +56,23 @@ HOME = /Users/jppang
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/jppang/Library/Application Support/Code/CachedData/da76f93349a72022ca4670c1b84860304616aaa2
+VSCODE_CODE_CACHE_PATH = /Users/jppang/Library/Application Support/Code/CachedData/6d9b74a70ca9c7733b29f0456fd8195364076dda
 # environment
 LOGNAME = jppang
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
-PLATFORMIO_PATH = /Users/jppang/.platformio/python3/bin:/usr/local/opt/openjdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+XPC_FLAGS = 0x0
 # default
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
-PATH = /usr/local/opt/openjdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-# environment
 SHLVL = 1
-# environment
-XPC_FLAGS = 0x0
 # default
 MAKE_VERSION := 3.81
 # environment
@@ -98,7 +90,7 @@ TMPDIR = /var/folders/_4/vtj3fpzn2m7djfp0j93dp8r00000gp/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/jppang/Library/Application Support/Code/1.70.0-main.sock
+VSCODE_IPC_HOOK = /Users/jppang/Library/Application Support/Code/1.70.1-main.sock
 # environment
 MallocNanoZone = 0
 # makefile
@@ -108,7 +100,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.4330533610.4330533616
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.4330880774.4330880780
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -122,11 +114,7 @@ MAKEFILES :=
 # automatic
 <F = $(notdir $<)
 # environment
-PLATFORMIO_CALLER = vscode
-# environment
 LC_ALL = C
-# environment
-SECURITYSESSIONID = 186a6
 # automatic
 ^F = $(notdir $^)
 # default
@@ -138,9 +126,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 463
+VSCODE_PID = 7963
 # variable set hash-table stats:
-# Load=64/1024=6%, Rehash=0, Collisions=3/85=4%
+# Load=58/1024=6%, Rehash=0, Collisions=1/79=1%
 
 # Pattern-specific Variable Values
 
@@ -222,7 +210,7 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Mon Aug  8 11:03:08 2022
+# Finished Make data base on Fri Aug 12 06:42:29 2022
 
  
 make: *** No rule to make target `all'.  Stop.
