@@ -333,17 +333,17 @@ void SystemInfosView::SetGPS(
 
 void SystemInfosView::SetMAG(
     float dir,
-    int x,
-    int y,
-    int z
+    float x,
+    float y,
+    float z
 )
 {
     lv_label_set_text_fmt(
         ui.mag.labelData,
         "%0.1f deg\n"
-        "%d\n"
-        "%d\n"
-        "%d",
+        "%0.1f\n"
+        "%0.1f\n"
+        "%0.1f",
         dir,
         x,
         y,

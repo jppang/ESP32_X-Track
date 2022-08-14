@@ -65,6 +65,16 @@ bool MAG_Init();
 void MAG_SetCommitCallback(CommitFunc_t func, void* userData);
 void MAG_Update();
 
+/* PHT */
+bool PHT_Init();
+void PHT_SetCommitCallback(CommitFunc_t func, void* userData);
+void PHT_Update();
+
+/* GY91 */
+bool GY91_Init();
+void GY91_SetCommitCallback(CommitFunc_t func, void* userData);
+void GY91_Update();
+
 /* SD */
 bool SD_Init();
 void SD_Update();

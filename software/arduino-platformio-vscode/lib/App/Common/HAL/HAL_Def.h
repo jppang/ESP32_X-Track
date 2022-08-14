@@ -32,25 +32,40 @@ typedef struct
     Clock_Info_t clock;
 } GPS_Info_t;
 
+/* PHT(Pressure-Humidity-Temperature) */
+typedef struct
+{
+    float pressure;
+    float humidity;
+    float temperature;
+} PHT_Info_t;
+
 /* MAG */
 typedef struct
 {
-    int16_t x;
-    int16_t y;
-    int16_t z;
+    float x;
+    float y;
+    float z;
 } MAG_Info_t;
 
 /* IMU */
 typedef struct
 {
-    int16_t ax;
-    int16_t ay;
-    int16_t az;
-    int16_t gx;
-    int16_t gy;
-    int16_t gz;
-    int16_t steps;
+    float ax;
+    float ay;
+    float az;
+    float gx;
+    float gy;
+    float gz;
+    float steps;
 } IMU_Info_t;
+
+typedef struct
+{
+    IMU_Info_t imu;
+    MAG_Info_t mag;
+    PHT_Info_t pht;
+} GY91_Info_t;
 
 /* SportStatus */
 typedef struct

@@ -102,9 +102,9 @@ void SystemInfos::Update()
 
     /* MAG */
     float dir;
-    int x;
-    int y;
-    int z;
+    float x;
+    float y;
+    float z;
     Model.GetMAGInfo(&dir, &x, &y, &z);
     View.SetMAG(dir, x, y, z);
 

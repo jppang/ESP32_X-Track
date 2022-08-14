@@ -69,9 +69,9 @@ void SystemInfosModel::GetGPSInfo(
 
 void SystemInfosModel::GetMAGInfo(
     float* dir,
-    int* x,
-    int* y,
-    int* z
+    float* x,
+    float* y,
+    float* z
 )
 {
     HAL::MAG_Info_t mag = { 0 };
@@ -96,7 +96,7 @@ void SystemInfosModel::GetIMUInfo(
     snprintf(
         info,
         len,
-        "%d\n%d\n%d\n%d\n%d\n%d",
+        "%0.2f\n%0.2f\n%0.2f\n%0.2f\n%0.2f\n%0.2f",
         imu.ax,
         imu.ay,
         imu.az,

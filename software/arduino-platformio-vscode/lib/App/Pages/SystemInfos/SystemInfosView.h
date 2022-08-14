@@ -49,9 +49,9 @@ public:
     );
     void SetMAG(
         float dir,
-        int x,
-        int y,
-        int z
+        float x,
+        float y,
+        float z
     );
     void SetIMU(
         int step,

@@ -29,9 +29,9 @@ public:
 
     void GetMAGInfo(
         float* dir,
-        int* x,
-        int* y,
-        int* z
+        float* x,
+        float* y,
+        float* z
     );
 
     void GetIMUInfo(

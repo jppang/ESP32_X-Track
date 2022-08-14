@@ -1,7 +1,7 @@
 #include "HAL.h"
-#include "LSM6DSM/LSM6DSM.h"
+#include "MPU6500_WE.h"
 
-static LSM6DSM imu;
+static MPU6500_WE imu = MPU6500_WE(0x68);
 static HAL::CommitFunc_t CommitFunc = nullptr;
 static void* UserData = nullptr;
 
@@ -9,7 +9,7 @@ bool HAL::IMU_Init()
 {
     Serial.print("IMU: init...");
 
-    bool success = imu.Init();
+    bool success = imu.init();
 
     Serial.println(success ? "success" : "failed");
 
@@ -25,16 +25,14 @@ void HAL::IMU_SetCommitCallback(CommitFunc_t func, void* userData)
 void HAL::IMU_Update()
 {
     IMU_Info_t imuInfo;
-    imu.GetMotion6(
-        &imuInfo.ax, &imuInfo.ay, &imuInfo.az,
-        &imuInfo.gx, &imuInfo.gy, &imuInfo.gz
-    );
-//    Serial.printf(
-//        "ax = %d, ay = %d, az = %d, gx = %d, gy = %d, gz = %d\r\n",
-//        imuInfo.ax, imuInfo.ay, imuInfo.az, imuInfo.gx, imuInfo.gy, imuInfo.gz
-//    );
-
-    imuInfo.steps = imu.GetCurrentStep();
+    imuInfo.ax = imu.getGValues().x;
+    imuInfo.ay = imu.getGValues().y;
+    imuInfo.az = imu.getGValues().z;
+    imuInfo.gx = imu.getGyrValues().x;
+    imuInfo.gy = imu.getGyrValues().y;
+    imuInfo.gz = imu.getGyrValues().z;
+    
+    imuInfo.steps = 0;
 
     if(CommitFunc)
     {

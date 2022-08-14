@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Fri Aug 12 06:42:29 2022
+# Make data base, printed on Sat Aug 13 10:07:08 2022
 
 # Variables
 
@@ -38,11 +38,13 @@ VSCODE_CWD = /
 # environment
 PATH = /usr/local/opt/openjdk/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 # environment
+LaunchInstanceID = 9BA031DD-348C-4B56-9F64-AE98B7A4BE51
+# environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.XRebZ9gK1x/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.LX7Q58qrkf/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -115,6 +117,8 @@ MAKEFILES :=
 <F = $(notdir $<)
 # environment
 LC_ALL = C
+# environment
+SECURITYSESSIONID = 186a6
 # automatic
 ^F = $(notdir $^)
 # default
@@ -126,9 +130,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 7963
+VSCODE_PID = 469
 # variable set hash-table stats:
-# Load=58/1024=6%, Rehash=0, Collisions=1/79=1%
+# Load=60/1024=6%, Rehash=0, Collisions=1/81=1%
 
 # Pattern-specific Variable Values
 
@@ -210,7 +214,7 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Fri Aug 12 06:42:29 2022
+# Finished Make data base on Sat Aug 13 10:07:08 2022
 
  
 make: *** No rule to make target `all'.  Stop.

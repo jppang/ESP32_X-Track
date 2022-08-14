@@ -13,6 +13,12 @@ static void HAL_Sensor_Init()
         Serial.println("I2C: disable sensors");
         return;
     }
+#if CONFIG_SENSOR_GY91_ENABLE
+    if(HAL::GY91_Init())
+    {
+        taskManager.Register(HAL::GY91_Update, 1000);
+    }
+#endif
 
 #if CONFIG_SENSOR_IMU_ENABLE
     if(HAL::IMU_Init())
@@ -27,6 +33,14 @@ static void HAL_Sensor_Init()
         taskManager.Register(HAL::MAG_Update, 1000);
     }
 #endif
+
+#if CONFIG_SENSOR_PHT_ENABLE
+    if(HAL::PHT_Init())
+    {
+        taskManager.Register(HAL::PHT_Update, 1000);
+    }
+#endif
+
 }
 
 #endif
