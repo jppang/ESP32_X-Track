@@ -1,9 +1,12 @@
 #include "HAL.h"
 #include "Seeed_BMP280.h"
-#include "DFRobot_AHT20.h"
+#include "AHT10.h"
+
+#define BMP280_ADDR 0x77
+#define AHT20_ADDR  0x38
 
 static BMP280 bmp;
-static DFRobot_AHT20 aht;
+static AHT10 aht = AHT10(AHT10_ADDRESS_0X38, AHT20_SENSOR);
 static HAL::CommitFunc_t CommitFunc = nullptr;
 static void* UserData = nullptr;
 
@@ -11,8 +14,7 @@ bool HAL::PHT_Init()
 {
     Serial.print("PHT(AHT20+BMP280): init...");
 
-    bool success = bmp.init();
-    aht.begin();
+    bool success = (bmp.init() && aht.begin());
 
     Serial.println(success ? "success" : "failed");
 
@@ -30,12 +32,8 @@ void HAL::PHT_Update()
     PHT_Info_t phtInfo;
 
     phtInfo.pressure = bmp.getPressure();
-    phtInfo.humidity = aht.getHumidity_RH();
-    phtInfo.temperature = aht.getTemperature_C();
-//    Serial.printf(
-//        "ax = %d, ay = %d, az = %d, gx = %d, gy = %d, gz = %d\r\n",
-//        imuInfo.ax, imuInfo.ay, imuInfo.az, imuInfo.gx, imuInfo.gy, imuInfo.gz
-//    );
+    phtInfo.humidity = aht.readHumidity();
+    phtInfo.temperature = aht.readTemperature();
 
     if(CommitFunc)
     {

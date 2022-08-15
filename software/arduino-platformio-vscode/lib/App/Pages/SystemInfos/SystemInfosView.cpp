@@ -75,6 +75,18 @@ void SystemInfosView::Create(lv_obj_t* root)
         "Gz"
     );
 
+/* Item PHT */
+    Item_Create(
+        &ui.pht,
+        root,
+        "PHT",
+        "barometer",
+
+        "Pressure\n"
+        "Humidity\n"
+        "Temperature"
+    );
+
     /* Item RTC */
     Item_Create(
         &ui.rtc,
@@ -155,7 +167,7 @@ void SystemInfosView::Delete()
 void SystemInfosView::SetScrollToY(lv_obj_t* obj, lv_coord_t y, lv_anim_enable_t en)
 {
     lv_coord_t scroll_y = lv_obj_get_scroll_y(obj);
-    lv_coord_t diff = -y + scroll_y;
+    lv_coord_t diff = -y + scroll_y / 10;
 
     lv_obj_scroll_by(obj, 0, diff, en);
 }
@@ -269,12 +281,12 @@ void SystemInfosView::Item_Create(
     lv_obj_align(label, LV_ALIGN_LEFT_MID, 75, 0);
     item->labelInfo = label;
 
-    /* datas */
+    /* data */
     label = lv_label_create(cont);
     lv_obj_enable_style_refresh(false);
     lv_label_set_text(label, "-");
     lv_obj_add_style(label, &style.data, 0);
-    lv_obj_align(label, LV_ALIGN_CENTER, 60, 0);
+    lv_obj_align(label, LV_ALIGN_CENTER, 70, 0);
     item->labelData = label;
 
     lv_obj_move_foreground(icon);
@@ -296,9 +308,9 @@ void SystemInfosView::SetSport(
 {
     lv_label_set_text_fmt(
         ui.sport.labelData,
-        "%0.2fkm\n"
+        "%0.2f km\n"
         "%s\n"
-        "%0.1fkm/h",
+        "%0.1f km/h",
         trip,
         time,
         maxSpd
@@ -318,10 +330,10 @@ void SystemInfosView::SetGPS(
         ui.gps.labelData,
         "%0.6f\n"
         "%0.6f\n"
-        "%0.2fm\n"
+        "%0.2f m\n"
         "%s\n"
         "%0.1f deg\n"
-        "%0.1fkm/h",
+        "%0.1f km/h",
         lat,
         lng,
         alt,
@@ -365,6 +377,23 @@ void SystemInfosView::SetIMU(
     );
 }
 
+void SystemInfosView::SetPHT(
+    float pressure,
+    float humidity,
+    float temperature
+)
+{
+    lv_label_set_text_fmt(
+        ui.pht.labelData,
+        "%0.1f hPa\n"
+        "%0.1f %%\n"
+        "%0.1f C",
+        pressure / 100,
+        humidity,
+        temperature
+    );
+}
+
 void SystemInfosView::SetRTC(
     const char* dateTime
 )
@@ -383,8 +412,8 @@ void SystemInfosView::SetBattery(
 {
     lv_label_set_text_fmt(
         ui.battery.labelData,
-        "%d%%\n"
-        "%0.2fV\n"
+        "%d %%\n"
+        "%0.2f V\n"
         "%s",
         usage,
         voltage,

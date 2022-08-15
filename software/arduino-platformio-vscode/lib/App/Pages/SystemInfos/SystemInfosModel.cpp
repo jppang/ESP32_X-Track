@@ -11,6 +11,7 @@ void SystemInfosModel::Init()
     account->Subscribe("GPS");
     account->Subscribe("MAG");
     account->Subscribe("IMU");
+    account->Subscribe("PHT");
     account->Subscribe("Clock");
     account->Subscribe("Power");
     account->Subscribe("Storage");
@@ -104,6 +105,21 @@ void SystemInfosModel::GetIMUInfo(
         imu.gy,
         imu.gz
     );
+}
+
+void SystemInfosModel::GetPHTInfo(
+    float* pressure,
+    float* humidity,
+    float* temperature
+)
+{
+    HAL::PHT_Info_t pht = { 0 };
+
+    account->Pull("PHT", &pht, sizeof(pht));
+
+    *pressure = pht.pressure;
+    *humidity = pht.humidity;
+    *temperature = pht.temperature;
 }
 
 void SystemInfosModel::GetRTCInfo(

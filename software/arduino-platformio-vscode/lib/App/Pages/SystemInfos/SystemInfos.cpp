@@ -113,6 +113,13 @@ void SystemInfos::Update()
     Model.GetIMUInfo(&steps, buf, sizeof(buf));
     View.SetIMU(steps, buf);
 
+    /* PHT */
+    float pressure;
+    float humidity;
+    float temperature;
+    Model.GetPHTInfo(&pressure, &humidity, &temperature);
+    View.SetPHT(pressure, humidity, temperature);
+    
     /* RTC */
     Model.GetRTCInfo(buf, sizeof(buf));
     View.SetRTC(buf);

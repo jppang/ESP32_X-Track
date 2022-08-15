@@ -39,6 +39,12 @@ public:
         char* info, uint32_t len
     );
 
+    void GetPHTInfo(
+        float* pressure,
+        float* humidity,
+        float* temperature
+    );
+
     void GetRTCInfo(
         char* dateTime, uint32_t len
     );

@@ -27,6 +27,7 @@ public:
         item_t gps;
         item_t mag;
         item_t imu;
+        item_t pht;
         item_t rtc;
         item_t battery;
         item_t storage;
@@ -56,6 +57,11 @@ public:
     void SetIMU(
         int step,
         const char* info
+    );
+    void SetPHT(
+        float pressure,
+        float humudity,
+        float temperature
     );
     void SetRTC(
         const char* dateTime
