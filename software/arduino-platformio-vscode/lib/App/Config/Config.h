@@ -33,7 +33,7 @@
 #define CONFIG_SYSTEM_TIME_ZONE_DEFAULT       8    // GMT+ 8
 #define CONFIG_SYSTEM_SOUND_ENABLE_DEFAULT    true
 
-#define CONFIG_WEIGHT_DEFAULT                 65   // kg
+#define CONFIG_WEIGHT_DEFAULT                 66   // kg
 
 #ifdef ARDUINO
 #  define CONFIG_GPS_REFR_PERIOD              1000 // ms
@@ -41,8 +41,8 @@
 #  define CONFIG_GPS_REFR_PERIOD              10 // ms
 #endif
 
-#define CONFIG_GPS_LONGITUDE_DEFAULT          116.391332f
-#define CONFIG_GPS_LATITUDE_DEFAULT           39.907415f
+#define CONFIG_GPS_LONGITUDE_DEFAULT          120.663873f
+#define CONFIG_GPS_LATITUDE_DEFAULT           24.141238f
 
 #define CONFIG_TRACK_FILTER_OFFSET_THRESHOLD  2 // pixel
 #define CONFIG_TRACK_RECORD_FILE_DIR_NAME     "Track"

@@ -36,6 +36,7 @@ do{\
         IMPORT_IMG(gps_arrow_dark);
         IMPORT_IMG(gps_arrow_light);
         IMPORT_IMG(gyroscope);
+        IMPORT_IMG(barometer);
         IMPORT_IMG(locate);
         IMPORT_IMG(map_location);
         IMPORT_IMG(menu);
