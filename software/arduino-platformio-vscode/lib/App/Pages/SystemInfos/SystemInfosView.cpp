@@ -75,7 +75,7 @@ void SystemInfosView::Create(lv_obj_t* root)
         "Gz"
     );
 
-/* Item PHT */
+    /* Item PHT */
     Item_Create(
         &ui.pht,
         root,
