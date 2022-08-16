@@ -28,6 +28,7 @@ void HAL::MAG_Update()
     magInfo.x = mag.getHeadingX();
     magInfo.y = mag.getHeadingY();
     magInfo.z = mag.getHeadingZ();
+    magInfo.dir = 0;
 
     if(CommitFunc)
     {

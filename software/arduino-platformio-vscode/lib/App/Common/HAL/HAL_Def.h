@@ -43,6 +43,7 @@ typedef struct
 /* MAG */
 typedef struct
 {
+    float dir;
     float x;
     float y;
     float z;

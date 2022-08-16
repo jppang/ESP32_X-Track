@@ -49,8 +49,11 @@ static void IRAM_ATTR Encoder_EventHandler()
         return;
     }
     encoder.tick();
-    EncoderDiff = encoder.getPosition();
-    Buzz_Handler((int) encoder.getDirection());
+    int newPos = encoder.getPosition();
+    if(EncoderDiff != newPos) {
+       Buzz_Handler((int) encoder.getDirection());
+       EncoderDiff = newPos; 
+    }
     portEXIT_CRITICAL(&emux);
 }
 

@@ -64,7 +64,7 @@ void SystemInfosView::Create(lv_obj_t* root)
         &ui.imu,
         root,
         "IMU",
-        "barometer",
+        "gyroscope",
 
         "Step\n"
         "Accel_X\n"
@@ -80,7 +80,7 @@ void SystemInfosView::Create(lv_obj_t* root)
         &ui.pht,
         root,
         "PHT",
-        "gyroscope",
+        "barometer",
 
         "Pressure\n"
         "Humidity\n"
@@ -147,15 +147,15 @@ void SystemInfosView::Group_Init()
     lv_group_set_wrap(group, true);
     lv_group_set_focus_cb(group, onFocus);
 
-    item_t* item_grp = ((item_t*)&ui);
+    item_t* item_group = ((item_t*)&ui);
 
     /* Reverse adding to group makes encoder operation more comfortable */
     for (int i = sizeof(ui) / sizeof(item_t) - 1; i >= 0; i--)
     {
-        lv_group_add_obj(group, item_grp[i].icon);
+        lv_group_add_obj(group, item_group[i].icon);
     }
 
-    lv_group_focus_obj(item_grp[0].icon);
+    lv_group_focus_obj(item_group[0].icon);
 }
 
 void SystemInfosView::Delete()
@@ -167,7 +167,7 @@ void SystemInfosView::Delete()
 void SystemInfosView::SetScrollToY(lv_obj_t* obj, lv_coord_t y, lv_anim_enable_t en)
 {
     lv_coord_t scroll_y = lv_obj_get_scroll_y(obj);
-    lv_coord_t diff = -y + scroll_y / 10;
+    lv_coord_t diff = -y + scroll_y;
 
     lv_obj_scroll_by(obj, 0, diff, en);
 }
@@ -232,13 +232,13 @@ void SystemInfosView::Style_Reset()
 
 void SystemInfosView::Item_Create(
     item_t* item,
-    lv_obj_t* par,
+    lv_obj_t* parent,
     const char* name,
     const char* img_src,
     const char* infos
 )
 {
-    lv_obj_t* cont = lv_obj_create(par);
+    lv_obj_t* cont = lv_obj_create(parent);
     lv_obj_enable_style_refresh(false);
     lv_obj_remove_style_all(cont);
     lv_obj_set_width(cont, 220);

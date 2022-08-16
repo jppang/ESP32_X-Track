@@ -104,7 +104,7 @@ private:
     void Style_Reset();
     void Item_Create(
         item_t* item,
-        lv_obj_t* par,
+        lv_obj_t* parent,
         const char* name,
         const char* img_src,
         const char* infos

@@ -23,11 +23,11 @@ void SystemInfos::onViewLoad()
     View.Create(_root);
     AttachEvent(_root);
 
-    SystemInfosView::item_t* item_grp = ((SystemInfosView::item_t*)&View.ui);
+    SystemInfosView::item_t* item_group = ((SystemInfosView::item_t*)&View.ui);
 
     for (int i = 0; i < sizeof(View.ui) / sizeof(SystemInfosView::item_t); i++)
     {
-        AttachEvent(item_grp[i].icon);
+        AttachEvent(item_group[i].icon);
     }
 }
 

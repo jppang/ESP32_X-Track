@@ -79,7 +79,7 @@ void SystemInfosModel::GetMAGInfo(
 
     account->Pull("MAG", &mag, sizeof(mag));
 
-    *dir = 0;
+    *dir = mag.dir;
     *x = mag.x;
     *y = mag.y;
     *z = mag.z;
