@@ -64,15 +64,15 @@ void SystemInfosView::Create(lv_obj_t* root)
         &ui.imu,
         root,
         "IMU",
-        "gyroscope",
+        "barometer",
 
         "Step\n"
-        "Ax\n"
-        "Ay\n"
-        "Az\n"
-        "Gx\n"
-        "Gy\n"
-        "Gz"
+        "Accel_X\n"
+        "Accel_Y\n"
+        "Accel_Z\n"
+        "Gyro_X\n"
+        "Gyro_Y\n"
+        "Gyro_Z"
     );
 
     /* Item PHT */
@@ -80,7 +80,7 @@ void SystemInfosView::Create(lv_obj_t* root)
         &ui.pht,
         root,
         "PHT",
-        "barometer",
+        "gyroscope",
 
         "Pressure\n"
         "Humidity\n"
