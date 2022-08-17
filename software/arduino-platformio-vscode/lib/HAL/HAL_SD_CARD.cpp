@@ -4,9 +4,8 @@
 #include "SD.h"
 #include "FS.h"
 
-#define SPI_FREQ    40*1000*1000
+#define SPI_FREQ    4*1000*1000
 
-//static SPIClass sdSPI = SPIClass(CONFIG_SD_SPI);
 static bool SD_IsReady = false;
 static uint32_t SD_CardSize = 0;
 
@@ -85,8 +84,7 @@ bool HAL::SD_GetReady()
 
 float HAL::SD_GetCardSizeMB()
 {
-#   define CONV_MB(size) (size / (1024*1024))
-    return CONV_MB(SD_CardSize);
+    return SD_CardSize / (1024 * 1024);
 }
 
 const char* HAL::SD_GetTypeName()

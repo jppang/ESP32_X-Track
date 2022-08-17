@@ -48,8 +48,8 @@
 
 /* File System Version */
 #ifdef ARDUINO
-#  include "SdFat.h"
-#  define VERSION_FILESYSTEM    "SDFAT v" VERSION_NUM_TO_STR(SD_FAT_VERSION)
+#  include "SD.h"
+#  define VERSION_FILESYSTEM    "SD v" VERSION_NUM_TO_STR(2.0.0)
 #else
 #  define VERSION_FILESYSTEM    "STDC"
 #endif

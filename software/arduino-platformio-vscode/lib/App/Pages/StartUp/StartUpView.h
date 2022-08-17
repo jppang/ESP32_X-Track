@@ -17,6 +17,7 @@ public:
     {
         lv_obj_t* cont;
         lv_obj_t* labelLogo;
+        lv_obj_t* icon;
 
         lv_anim_timeline_t* anim_timeline;
     } ui;

@@ -25,6 +25,11 @@ void StartupView::Create(lv_obj_t* root)
     lv_obj_center(label);
     ui.labelLogo = label;
 
+    lv_obj_t* img = lv_img_create(root);
+    lv_img_set_src(img, ResourcePool::GetImage("holyridge"));
+    lv_obj_align(img, LV_ALIGN_TOP_MID, 0, 20);
+    ui.icon = img;
+
     ui.anim_timeline = lv_anim_timeline_create();
 
 #define ANIM_DEF(start_time, obj, attr, start, end) \
@@ -33,6 +38,7 @@ void StartupView::Create(lv_obj_t* root)
     lv_anim_timeline_wrapper_t wrapper[] =
     {
         ANIM_DEF(0, ui.cont, width, 0, lv_obj_get_style_width(ui.cont, 0)),
+        ANIM_DEF(0, ui.icon, y, lv_obj_get_style_height(ui.icon, 0), lv_obj_get_y(ui.icon)),
         ANIM_DEF(500, ui.labelLogo, y, lv_obj_get_style_height(ui.cont, 0), lv_obj_get_y(ui.labelLogo)),
         LV_ANIM_TIMELINE_WRAPPER_END
     };
