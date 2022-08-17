@@ -2,6 +2,8 @@
 #include "lvgl.h"
 #include "SdFat.h"
 #include "HAL.h"
+#include "SD.h"
+#include "FS.h"
 
 /*********************
  *      DEFINES

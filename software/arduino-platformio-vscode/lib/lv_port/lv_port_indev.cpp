@@ -55,6 +55,9 @@ void lv_port_indev_init(void)
     lv_indev_drv_init(&indev_drv);
     indev_drv.type = LV_INDEV_TYPE_ENCODER;
     indev_drv.read_cb = encoder_read;
+    indev_drv.scroll_throw = 200;
+    indev_drv.scroll_limit = 20;
+    indev_drv.gesture_limit= 10;
     lv_indev_t* indev = lv_indev_drv_register(&indev_drv);
     
     lv_group_t* group = lv_group_create();

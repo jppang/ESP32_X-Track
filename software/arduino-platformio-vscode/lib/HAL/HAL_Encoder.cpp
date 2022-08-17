@@ -3,7 +3,7 @@
 #include "RotaryEncoder.h"
 
 static ButtonEvent EncoderPush(CONFIG_POWER_SHUTDOWM_DELAY);
-static RotaryEncoder encoder = RotaryEncoder(CONFIG_ENCODER_A_PIN, CONFIG_ENCODER_B_PIN, RotaryEncoder::LatchMode::TWO03);
+static RotaryEncoder encoder = RotaryEncoder(CONFIG_ENCODER_A_PIN, CONFIG_ENCODER_B_PIN, RotaryEncoder::LatchMode::FOUR0);
 static bool EncoderEnable = true;
 static volatile int32_t EncoderDiff = 0;
 static bool EncoderDiffDisable = false;
