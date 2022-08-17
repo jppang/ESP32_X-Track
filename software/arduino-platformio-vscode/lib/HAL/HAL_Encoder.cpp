@@ -93,6 +93,7 @@ int32_t HAL::Encoder_GetDiff()
 {
     int32_t diff = EncoderDiff;
     EncoderDiff = 0;
+    encoder.setPosition(0);
     return diff;
 }
 

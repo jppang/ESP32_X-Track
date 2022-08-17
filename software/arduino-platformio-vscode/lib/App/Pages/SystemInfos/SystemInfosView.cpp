@@ -10,6 +10,7 @@ void SystemInfosView::Create(lv_obj_t* root)
     lv_obj_set_style_pad_ver(root, ITEM_PAD, 0);
 
     lv_obj_set_flex_flow(root, LV_FLEX_FLOW_COLUMN);
+    lv_obj_add_flag(root, LV_OBJ_FLAG_SCROLL_ONE);
     lv_obj_set_flex_align(
         root,
         LV_FLEX_ALIGN_START,
