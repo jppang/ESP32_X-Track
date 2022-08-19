@@ -3,15 +3,17 @@
 
 using namespace Page;
 
-#define COLOR_ORANGE    lv_color_hex(0xff931e)
-
 void StartupView::Create(lv_obj_t* root)
 {
+    lv_obj_t* img = lv_img_create(root);
+    lv_img_set_src(img, ResourcePool::GetImage("holyridge"));
+    lv_obj_align(img, LV_ALIGN_TOP_MID, 0, 0);
+    
     lv_obj_t* cont = lv_obj_create(root);
     lv_obj_remove_style_all(cont);
     lv_obj_clear_flag(cont, LV_OBJ_FLAG_SCROLLABLE);
     lv_obj_set_size(cont, 110, 50);
-    lv_obj_set_style_border_color(cont, COLOR_ORANGE, 0);
+    lv_obj_set_style_border_color(cont, lv_color_hex(0x0000ff), 0);
     lv_obj_set_style_border_side(cont, LV_BORDER_SIDE_BOTTOM, 0);
     lv_obj_set_style_border_width(cont, 3, 0);
     lv_obj_set_style_border_post(cont, true, 0);
@@ -25,10 +27,10 @@ void StartupView::Create(lv_obj_t* root)
     lv_obj_center(label);
     ui.labelLogo = label;
 
-    lv_obj_t* img = lv_img_create(root);
-    lv_img_set_src(img, ResourcePool::GetImage("holyridge"));
-    lv_obj_align(img, LV_ALIGN_TOP_MID, 0, 20);
-    ui.icon = img;
+    lv_obj_t* footstep = lv_img_create(root);
+    lv_img_set_src(footstep, ResourcePool::GetImage("footstep"));
+    lv_obj_align(footstep, LV_ALIGN_BOTTOM_MID, 0, 0);
+    ui.icon = footstep;
 
     ui.anim_timeline = lv_anim_timeline_create();
 
@@ -38,12 +40,12 @@ void StartupView::Create(lv_obj_t* root)
     lv_anim_timeline_wrapper_t wrapper[] =
     {
         ANIM_DEF(0, ui.cont, width, 0, lv_obj_get_style_width(ui.cont, 0)),
-        ANIM_DEF(0, ui.icon, y, lv_obj_get_style_height(ui.icon, 0), lv_obj_get_y(ui.icon)),
         ANIM_DEF(500, ui.labelLogo, y, lv_obj_get_style_height(ui.cont, 0), lv_obj_get_y(ui.labelLogo)),
         LV_ANIM_TIMELINE_WRAPPER_END
     };
-
+    
     lv_anim_timeline_add_wrapper(ui.anim_timeline, wrapper);
+    lv_obj_fade_in(footstep, 500, 1000);
 }
 
 void StartupView::Delete()

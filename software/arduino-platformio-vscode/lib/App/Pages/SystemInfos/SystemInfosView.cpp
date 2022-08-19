@@ -194,7 +194,7 @@ void SystemInfosView::Style_Init()
     lv_style_set_width(&style.focus, 70);
     lv_style_set_border_side(&style.focus, LV_BORDER_SIDE_RIGHT);
     lv_style_set_border_width(&style.focus, 2);
-    lv_style_set_border_color(&style.focus, lv_color_hex(0xff931e));
+    lv_style_set_border_color(&style.focus, lv_color_hex(0x0000ff));
 
     static const lv_style_prop_t style_prop[] =
     {

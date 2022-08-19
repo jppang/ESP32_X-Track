@@ -33,6 +33,7 @@ do{\
         IMPORT_IMG(battery_info);
         IMPORT_IMG(bicycle);
         IMPORT_IMG(compass);
+        IMPORT_IMG(footstep);
         IMPORT_IMG(gps_arrow_default);
         IMPORT_IMG(gps_arrow_dark);
         IMPORT_IMG(gps_arrow_light);

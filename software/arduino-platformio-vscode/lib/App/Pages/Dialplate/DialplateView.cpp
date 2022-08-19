@@ -55,7 +55,8 @@ void DialplateView::TopInfo_Create(lv_obj_t* par)
     lv_obj_set_size(cont, LV_HOR_RES, 142);
 
     lv_obj_set_style_bg_opa(cont, LV_OPA_COVER, 0);
-    lv_obj_set_style_bg_color(cont, lv_color_hex(0x333333), 0);
+ //   lv_obj_set_style_bg_color(cont, lv_color_hex(0x333333), 0);
+    lv_obj_set_style_bg_color(cont, lv_color_hex(0x0000ff), 0);
 
     lv_obj_set_style_radius(cont, 27, 0);
     lv_obj_set_y(cont, -36);
@@ -177,8 +178,8 @@ lv_obj_t* DialplateView::Btn_Create(lv_obj_t* par, const void* img_src, lv_coord
     lv_obj_set_style_width(obj, 45, LV_STATE_PRESSED);
     lv_obj_set_style_height(obj, 25, LV_STATE_PRESSED);
     lv_obj_set_style_bg_color(obj, lv_color_hex(0x666666), 0);
-    lv_obj_set_style_bg_color(obj, lv_color_hex(0xbbbbbb), LV_STATE_PRESSED);
-    lv_obj_set_style_bg_color(obj, lv_color_hex(0xff931e), LV_STATE_FOCUSED);
+    lv_obj_set_style_bg_color(obj, lv_color_hex(0xff0000), LV_STATE_PRESSED);
+    lv_obj_set_style_bg_color(obj, lv_color_hex(0x0000ff), LV_STATE_FOCUSED);
     lv_obj_set_style_radius(obj, 9, 0);
 
     static lv_style_transition_dsc_t tran;
