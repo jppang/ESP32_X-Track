@@ -48,15 +48,14 @@ void DialplateView::Delete()
     }
 }
 
-void DialplateView::TopInfo_Create(lv_obj_t* par)
+void DialplateView::TopInfo_Create(lv_obj_t* parent)
 {
-    lv_obj_t* cont = lv_obj_create(par);
+    lv_obj_t* cont = lv_obj_create(parent);
     lv_obj_remove_style_all(cont);
     lv_obj_set_size(cont, LV_HOR_RES, 142);
 
     lv_obj_set_style_bg_opa(cont, LV_OPA_COVER, 0);
- //   lv_obj_set_style_bg_color(cont, lv_color_hex(0x333333), 0);
-    lv_obj_set_style_bg_color(cont, lv_color_hex(0x0000ff), 0);
+    lv_obj_set_style_bg_color(cont, lv_color_hex(0x333333), 0);
 
     lv_obj_set_style_radius(cont, 27, 0);
     lv_obj_set_y(cont, -36);
@@ -77,9 +76,9 @@ void DialplateView::TopInfo_Create(lv_obj_t* par)
     ui.topInfo.labelUint = label;
 }
 
-void DialplateView::BottomInfo_Create(lv_obj_t* par)
+void DialplateView::BottomInfo_Create(lv_obj_t* parent)
 {
-    lv_obj_t* cont = lv_obj_create(par);
+    lv_obj_t* cont = lv_obj_create(parent);
     lv_obj_remove_style_all(cont);
     lv_obj_set_style_bg_color(cont, lv_color_black(), 0);
     lv_obj_set_size(cont, LV_HOR_RES, 90);
@@ -114,9 +113,9 @@ void DialplateView::BottomInfo_Create(lv_obj_t* par)
     }
 }
 
-void DialplateView::SubInfoGrp_Create(lv_obj_t* par, SubInfo_t* info, const char* unitText)
+void DialplateView::SubInfoGrp_Create(lv_obj_t* parent, SubInfo_t* info, const char* unitText)
 {
-    lv_obj_t* cont = lv_obj_create(par);
+    lv_obj_t* cont = lv_obj_create(parent);
     lv_obj_remove_style_all(cont);
     lv_obj_set_size(cont, 93, 39);
 
@@ -142,9 +141,9 @@ void DialplateView::SubInfoGrp_Create(lv_obj_t* par, SubInfo_t* info, const char
     info->cont = cont;
 }
 
-void DialplateView::BtnCont_Create(lv_obj_t* par)
+void DialplateView::BtnCont_Create(lv_obj_t* parent)
 {
-    lv_obj_t* cont = lv_obj_create(par);
+    lv_obj_t* cont = lv_obj_create(parent);
     lv_obj_remove_style_all(cont);
     lv_obj_set_size(cont, LV_HOR_RES, 40);
     lv_obj_align_to(cont, ui.bottomInfo.cont, LV_ALIGN_OUT_BOTTOM_MID, 0, 0);
@@ -164,9 +163,9 @@ void DialplateView::BtnCont_Create(lv_obj_t* par)
     ui.btnCont.btnMenu = Btn_Create(cont, ResourcePool::GetImage("menu"), 80);
 }
 
-lv_obj_t* DialplateView::Btn_Create(lv_obj_t* par, const void* img_src, lv_coord_t x_ofs)
+lv_obj_t* DialplateView::Btn_Create(lv_obj_t* parent, const void* img_src, lv_coord_t x_ofs)
 {
-    lv_obj_t* obj = lv_obj_create(par);
+    lv_obj_t* obj = lv_obj_create(parent);
     lv_obj_remove_style_all(obj);
     lv_obj_set_size(obj, 40, 31);
     lv_obj_clear_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
@@ -178,7 +177,7 @@ lv_obj_t* DialplateView::Btn_Create(lv_obj_t* par, const void* img_src, lv_coord
     lv_obj_set_style_width(obj, 45, LV_STATE_PRESSED);
     lv_obj_set_style_height(obj, 25, LV_STATE_PRESSED);
     lv_obj_set_style_bg_color(obj, lv_color_hex(0x666666), 0);
-    lv_obj_set_style_bg_color(obj, lv_color_hex(0xff0000), LV_STATE_PRESSED);
+    lv_obj_set_style_bg_color(obj, lv_color_hex(0x00ffff), LV_STATE_PRESSED);
     lv_obj_set_style_bg_color(obj, lv_color_hex(0x0000ff), LV_STATE_FOCUSED);
     lv_obj_set_style_radius(obj, 9, 0);
 

@@ -25,7 +25,7 @@ void SystemInfosView::Create(lv_obj_t* root)
         &ui.sport,
         root,
         "Sport",
-        "bicycle",
+        "mountain",
 
         "Total trip\n"
         "Total time\n"

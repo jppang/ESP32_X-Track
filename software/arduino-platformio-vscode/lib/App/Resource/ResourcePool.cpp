@@ -42,6 +42,7 @@ do{\
         IMPORT_IMG(locate);
         IMPORT_IMG(map_location);
         IMPORT_IMG(menu);
+        IMPORT_IMG(mountain);
         IMPORT_IMG(origin_point);
         IMPORT_IMG(pause);
         IMPORT_IMG(satellite);
