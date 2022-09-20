@@ -43,10 +43,10 @@ typedef struct
 /* MAG */
 typedef struct
 {
-    float dir;
-    float x;
-    float y;
-    float z;
+    int dir;
+    int x;
+    int y;
+    int z;
 } MAG_Info_t;
 
 /* IMU */

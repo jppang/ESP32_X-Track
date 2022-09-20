@@ -49,10 +49,10 @@ public:
         float speed
     );
     void SetMAG(
-        float dir,
-        float x,
-        float y,
-        float z
+        int dir,
+        int x,
+        int y,
+        int z
     );
     void SetIMU(
         int step,
